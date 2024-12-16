@@ -22,18 +22,18 @@
 - База данных MySQL или MariaDB
 - PHP с необходимыми расширениями
 
-1. **Обновите систему**:
+- **Обновите систему**:
    ```bash
    sudo apt update
    sudo apt upgrade
    ```
 
-2. **Установите Apache, PHP и MySQL**:
+- **Установите Apache, PHP и MySQL**:
    ```bash
    sudo apt install apache2 mysql-server php php-mysql libapache2-mod-php php-intl php-mbstring php-xml php-json php-zip php-bz2
    ```
 
-3. **Настройте MySQL**:
+- **Настройте MySQL**:
    Запустите MySQL и создайте базу данных для MediaWiki:
    ```bash
    sudo mysql -u root -p
@@ -44,9 +44,9 @@
    EXIT;
    ```
 
-##### Step 2. Скачивание и установка MediaWiki
+##### 2. Скачивание и установка MediaWiki
 
-1. **Скачайте и распакуйте MediaWiki**:
+- **Скачайте и распакуйте MediaWiki**:
    ```bash
    cd /var/www/html
    sudo wget https://releases.wikimedia.org/mediawiki/1.39/mediawiki-1.39.0.tar.gz
@@ -54,13 +54,13 @@
    sudo mv mediawiki-1.39.0 mediawiki
    ```
 
-2. **Настройте права доступа**:
+- **Настройте права доступа**:
    ```bash
    sudo chown -R www-data:www-data /var/www/html/mediawiki
    sudo chmod -R 755 /var/www/html/mediawiki
    ```
 
-3. **Настройте Apache**:
+- **Настройте Apache**:
    Создайте новый конфигурационный файл:
    ```bash
    sudo nano /etc/apache2/sites-available/mediawiki.conf
@@ -79,13 +79,13 @@
    </VirtualHost>
    ```
 
-4. **Активируйте сайт и перезагрузите Apache**:
+- **Активируйте сайт и перезагрузите Apache**:
    ```bash
    sudo a2ensite mediawiki.conf
    sudo systemctl reload apache2
    ```
 
-##### Step 3. Завершение установки через веб-интерфейс
+##### 3. Завершение установки через веб-интерфейс
 
 Перейдите по адресу `http://wiki.local` в браузере и следуйте инструкциям на экране для завершения установки. Укажите параметры базы данных, созданной ранее.
 
@@ -95,20 +95,20 @@
 
 **Redmine** — это система управления задачами с поддержкой плагинов и диаграмм Gantt.
 
-##### Step 1. Подготовка окружения
+##### 1. Подготовка окружения
 
 Для установки Redmine потребуется:
 - Веб-сервер Apache или Nginx
 - База данных (например, MySQL)
 - Ruby и необходимые зависимости
 
-1. **Установите зависимости**:
+- **Установите зависимости**:
    ```bash
    sudo apt update
    sudo apt install apache2 libapache2-mod-passenger mysql-server ruby ruby-dev libmysqlclient-dev imagemagick libmagickwand-dev
    ```
 
-2. **Установите Redmine**:
+- **Установите Redmine**:
    Скачайте последнюю версию Redmine:
    ```bash
    cd /opt
@@ -116,9 +116,9 @@
    sudo ln -s /opt/redmine /var/www/html/redmine
    ```
 
-##### Step 2. Настройка базы данных
+##### 2. Настройка базы данных
 
-1. **Настройте MySQL**:
+- **Настройте MySQL**:
    Запустите MySQL и создайте базу данных:
    ```bash
    sudo mysql -u root -p
@@ -129,7 +129,7 @@
    EXIT;
    ```
 
-2. **Конфигурация Redmine**:
+- **Конфигурация Redmine**:
    Перейдите в каталог Redmine и отредактируйте файл конфигурации:
    ```bash
    cd /opt/redmine
@@ -147,9 +147,9 @@
      encoding: utf8mb4
    ```
 
-##### Step 3. Настройка Apache
+##### 3. Настройка Apache
 
-1. **Создайте конфигурацию для Apache**:
+- **Создайте конфигурацию для Apache**:
    Создайте новый конфигурационный файл:
    ```bash
    sudo nano /etc/apache2/sites-available/redmine.conf
@@ -168,13 +168,13 @@
    </VirtualHost>
    ```
 
-2. **Активируйте сайт и перезагрузите Apache**:
+- **Активируйте сайт и перезагрузите Apache**:
    ```bash
    sudo a2ensite redmine.conf
    sudo systemctl reload apache2
    ```
 
-##### Step 4. Завершение установки через веб-интерфейс
+##### 4. Завершение установки через веб-интерфейс
 
 Перейдите по адресу `http://redmine.local` в браузере и следуйте инструкциям для завершения установки. Укажите настройки базы данных, созданной ранее.
 
